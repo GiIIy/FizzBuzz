@@ -43,36 +43,24 @@ function sleep(ms) {                                                        // c
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function fizzBuzz(){                                                  // creates function called fizzBuzz
-    
-    for(var i = 1; i <101; i++){                                            // runs a for loop starting from 1, up until 100
-        if(i % 3 == 0 && i % 5 == 0){
-            document.getElementById("fizzbuzz").innerHTML = "FizzBuzz";     // Outputs 'FizzBuzz' if i is divisble by 3 and 5 ( outputting an integer)
-            await sleep(500);                                               // waits/sleeps for 500 miliseconds        
-        }else if(i % 3 == 0){
-            document.getElementById("fizzbuzz").innerHTML = "Fizz";         // Outputs 'Fizz' if i is divisble by 3 ( outputting an integer)
-            await sleep(500);                                               // waits/sleeps for 500 miliseconds  
-        }else if(i % 5 == 0){
-            document.getElementById("fizzbuzz").innerHTML = "Buzz";         // Outputs 'Fizz' if i is divisble by 5 ( outputting an integer)
-            await sleep(500);                                               // waits/sleeps for 500 miliseconds  
-        }else{
-            document.getElementById("fizzbuzz").innerHTML = i;              // If none of the if statements are true, then it will output i
-            await sleep(500);                                               // waits/sleeps for 500 miliseconds
+async function fizzBuzz(){                                                  // creates function fizzBuzz
+
+    for(var i = 1; i <101; i++){                                            // starts a for loop from 1 to 100
+        var f = "";                                                         // creates variable f                                    
+        if(i % 3 == 0){                                                      
+            f = f + "Fizz";                                                 // if i is divisible by 3 (outputting an integer) then fizz is added to the end of variable f                                                    
+        }if(i % 5 == 0){                                                     
+             f = f + "Buzz";                                                // if i is divisible by 3 (outputting an integer) then buzz is added to the end of variable f
+        }if(f == ""){                                           
+            f = i;                                                          // if i is empty then f is i  
         }
-    }
+
+        document.getElementById("fizzbuzz").innerHTML = f;                  // outputs f
+        await sleep(500);                                                   // waits/sleeps 500 miliseconds 
+  }
 }
 
 fizzBuzz();                                                                 // calls function 'fizzBuzz'
-
-
-
-
-
-
-
-
-
-
 
 
 </script>
