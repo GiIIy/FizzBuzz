@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz</title>
+</head>
+
+<style>
+
+body{
+    background: #1d1d1d;
+}
+
+
+.fizzy{
+font-size: 50px;
+width: 30%;
+border: 3px solid white;
+padding: 10px;
+text-align: center;
+color: white;
+position: absolute;
+top: 35%;
+right: 35%;
+
+}
+
+</style>
+<body>
+    
+
+    <div class="fizzy">                                     
+        <p id="fizzbuzz">-</p>                                              <!--  allows us to output through javascript -->
+    </div>
+
+</body>
+<script>
+
+
+function sleep(ms) {                                                        // creates function sleep, which will sleep (wait) x milliseconds until the next line of code
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function fizzBuzz(){                                                  // creates function called fizzBuzz
+    
+    for(var i = 1; i <101; i++){                                            // runs a for loop starting from 1, up until 100
+        if(i % 3 == 0 && i % 5 == 0){
+            document.getElementById("fizzbuzz").innerHTML = "FizzBuzz";     // Outputs 'FizzBuzz' if i is divisble by 3 and 5 ( outputting an integer)
+            await sleep(500);                                               // waits/sleeps for 500 miliseconds        
+        }else if(i % 3 == 0){
+            document.getElementById("fizzbuzz").innerHTML = "Fizz";         // Outputs 'Fizz' if i is divisble by 3 ( outputting an integer)
+            await sleep(500);                                               // waits/sleeps for 500 miliseconds  
+        }else if(i % 5 == 0){
+            document.getElementById("fizzbuzz").innerHTML = "Buzz";         // Outputs 'Fizz' if i is divisble by 5 ( outputting an integer)
+            await sleep(500);                                               // waits/sleeps for 500 miliseconds  
+        }else{
+            document.getElementById("fizzbuzz").innerHTML = i;              // If none of the if statements are true, then it will output i
+            await sleep(500);                                               // waits/sleeps for 500 miliseconds
+        }
+    }
+}
+
+fizzBuzz();                                                                 // calls function 'fizzBuzz'
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
